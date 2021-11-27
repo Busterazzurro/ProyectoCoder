@@ -1,0 +1,22 @@
+
+{% extends 'AppCoder/inicio.html' %}
+
+{% block head_block %} 
+   
+    <title>Autos</title>
+
+{% endblock head_block %}
+
+{% block body_block %}
+   
+    <h1>Autos</h1>
+
+    <ul>
+        {% for auto in autos%}
+            <li>
+                {{auto}}
+            </li>
+        {% endfor %}
+    </ul>
+
+ {% endblock body_block %}

@@ -1,0 +1,27 @@
+
+{% extends 'AppCoder/inicio.html' %}
+
+{% block head_block %} 
+   
+    <title>Viajes</title>
+
+{% endblock head_block %}
+
+{% block body_block %}
+   
+    <h1>Viajes</h1>
+
+    <form action={% url 'Viajes' %} method="GET">
+        <input type="text" name='numero' placeholder="Numero a buscar..."/>
+        <input type="submit" value="Buscar"/>
+    </form>
+
+    <ul>
+        {% for viaje in viajes%}
+            <li>
+                {{viaje}}
+            </li>
+        {% endfor %}
+    </ul>
+
+ {% endblock body_block %}
