@@ -23,7 +23,7 @@ class Viaje(models.Model):
     preferencia_aire_acondicionado=models.BooleanField()
     preferencia_musica=models.BooleanField()
     forma_de_pago=models.CharField(max_length=10)
-    numero=models.IntegerField()
+    id_viaje=models.IntegerField()
     
     def __str__(self):
         return f'Viaje Numero:  {self.numero}'

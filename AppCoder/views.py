@@ -29,13 +29,13 @@ def lista_autos(request):
     autos = None
     error = None
     if request.method == 'GET':
-        numero = request.GET.get('numero', '')
-        if numero =='':
+        id_auto = request.GET.get('id_auto', '')
+        if id_auto =='':
             autos = Auto.objects.all()
         else:
             try:
-                numero = int(numero)
-                autos = Auto.objects.filter(numero=numero)
+                id_auto = int(id_auto)
+                autos = Auto.objects.filter(id_auto=id_auto)
             except:
                 error = 'Debes ingresar un numero entero'
                 
@@ -46,13 +46,13 @@ def lista_viajes(request):
     viajes = None
     error = None
     if request.method == 'GET':
-        numero = request.GET.get('numero', '')
-        if numero =='':
-            viajes = Viaje.objects.all()
+        id_viaje = request.GET.get('id_viaje', '')
+        if id_viaje =='':
+            id_viaje = Viaje.objects.all()
         else:
             try:
-                numero = int(numero)
-                viajes = Viaje.objects.filter(numero=numero)
+                id_viaje = int(id_viaje)
+                viajes = Viaje.objects.filter(id_viaje=id_viaje)
             except:
                 error = 'Debes ingresar un numero entero'
 
