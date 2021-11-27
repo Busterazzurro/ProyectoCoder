@@ -9,43 +9,51 @@ def inicio(request):
 
 #CLIENTES
 def lista_clientes(request):
-    
+    clientes = None
+    error = None
     if request.method == 'GET':
-        numero = request.GET.get('numero', None)
-        try:
-            numero = int(numero)
-        except:
-            error = 'Debes ingresar un numero entero'
-        clientes = Cliente.objects.filter(numero=numero)
-        
-    
-    clientes = Cliente.objects.all()
+        numero = request.GET.get('numero', '')
+        if numero =='':
+            clientes = Cliente.objects.all()
+        else:
+            try:
+                numero = int(numero)
+                clientes = Cliente.objects.filter(numero=numero)
+            except:
+                error = 'Debes ingresar un numero entero'
+
     return render(request, 'AppCoder/lista_clientes.html', {'clientes': clientes, 'error': error})
 
 #AUTOS
 def lista_autos(request):
-    
+    autos = None
+    error = None
     if request.method == 'GET':
-        numero = request.GET.get('numero', None)
-        try:
-            numero = int(numero)
-        except:
-            error = 'Debes ingresar un numero entero'
-        autos = Auto.objects.filter(numero=numero)
-    
-    autos = Auto.objects.all()
+        numero = request.GET.get('numero', '')
+        if numero =='':
+            autos = Auto.objects.all()
+        else:
+            try:
+                numero = int(numero)
+                autos = Auto.objects.filter(numero=numero)
+            except:
+                error = 'Debes ingresar un numero entero'
+                
     return render(request, 'AppCoder/lista_autos.html', {'autos': autos, 'error': error})
 
 #VIAJES
 def lista_viajes(request):
-    
+    viajes = None
+    error = None
     if request.method == 'GET':
-        numero = request.GET.get('numero', None)
-        try:
-            numero = int(numero)
-        except:
-            error = 'Debes ingresar un numero entero'
-        viajes = Viaje.objects.filter(numero=numero)
-    
-    viajes = Viaje.objects.all()
+        numero = request.GET.get('numero', '')
+        if numero =='':
+            viajes = Viaje.objects.all()
+        else:
+            try:
+                numero = int(numero)
+                viajes = Viaje.objects.filter(numero=numero)
+            except:
+                error = 'Debes ingresar un numero entero'
+
     return render(request, 'AppCoder/lista_viajes.html', {'viajes': viajes, 'error': error})

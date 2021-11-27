@@ -17,11 +17,15 @@
     </form>
 
     <ul>
+    {% if viajes%}
         {% for viaje in viajes%}
             <li>
-                {{viaje}}
+                {{viajes}}
             </li>
         {% endfor %}
+    {% else %}
+        <h3>{{error}}</h3>
+    {% endif %}
     </ul>
 
  {% endblock body_block %}

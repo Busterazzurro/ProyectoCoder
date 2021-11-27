@@ -12,11 +12,7 @@ class Cliente(models.Model):
 class Auto(models.Model):
     modelo=models.CharField(max_length=20)
     marca=models.CharField(max_length=20)
-    color=models.CharField(max_length=10)
-    anio=models.IntegerField()
-    patente=models.CharField(max_length=10)
-    numero=models.IntegerField()
-    
+
     def __str__(self):
         return f'Auto Numero:  {self.numero}'
     
